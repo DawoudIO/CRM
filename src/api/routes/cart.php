@@ -1,10 +1,9 @@
 <?php
-use ChurchCRM\GroupQuery;
-use ChurchCRM\Person2group2roleP2g2r;
+
 use ChurchCRM\dto\Cart;
 
 $app->group('/cart', function () {
-  
+
     $this->get('/',function($request,$response,$args) {
       return $response->withJSON(['PeopleCart' =>  $_SESSION['aPeopleCart']]);
     });
@@ -29,7 +28,7 @@ $app->group('/cart', function () {
           }
           return $response->withJson(['status' => "success"]);
       });
-      
+
     $this->post('/emptyToGroup', function($request, $response, $args) {
         $cartPayload = (object)$request->getParsedBody();
         Cart::EmptyToGroup($cartPayload->groupID, $cartPayload->groupRoleID);
@@ -43,7 +42,7 @@ $app->group('/cart', function () {
      * delete. This will empty the cart
      */
     $this->delete('/', function ($request, $response, $args) {
-      
+
         $cartPayload = (object)$request->getParsedBody();
         if ( isset ($cartPayload->Persons) && count($cartPayload->Persons) > 0 )
         {

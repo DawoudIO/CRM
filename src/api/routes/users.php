@@ -1,13 +1,11 @@
 <?php
 
 // Users APIs
-use ChurchCRM\UserQuery;
-use ChurchCRM\UserConfigQuery;
-use ChurchCRM\Emails\ResetPasswordEmail;
 use ChurchCRM\Emails\AccountDeletedEmail;
+use ChurchCRM\Emails\ResetPasswordEmail;
 use ChurchCRM\Emails\UnlockedEmail;
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\User;
+use ChurchCRM\UserConfigQuery;
+use ChurchCRM\UserQuery;
 
 $app->group('/users', function () {
 

@@ -1,8 +1,8 @@
 <?php
 
+use ChurchCRM\PersonCustomMasterQuery;
 use Slim\Http\Request;
 use Slim\Http\Response;
-use ChurchCRM\PersonCustomMasterQuery;
 
 $app->group('/system/custom-fields', function () {
     $this->get('/person', 'getPersonFieldsByType');

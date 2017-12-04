@@ -13,8 +13,8 @@ require "Include/Config.php";
 require "Include/Functions.php";
 
 use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\FamilyQuery;
 use ChurchCRM\dto\SystemURLs;
+use ChurchCRM\FamilyQuery;
 use ChurchCRM\Service\MailChimpService;
 use ChurchCRM\Service\TimelineService;
 use ChurchCRM\Utils\GeoUtils;

@@ -19,14 +19,14 @@
 // Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\UserQuery;
-use ChurchCRM\PersonQuery;
-use Propel\Runtime\ActiveQuery\Criteria;
-use ChurchCRM\Emails\NewAccountEmail;
-use ChurchCRM\User;
-use ChurchCRM\Utils\InputUtils;
+
 use ChurchCRM\dto\SystemURLs;
+use ChurchCRM\Emails\NewAccountEmail;
+use ChurchCRM\PersonQuery;
+use ChurchCRM\User;
+use ChurchCRM\UserQuery;
+use ChurchCRM\Utils\InputUtils;
+use Propel\Runtime\ActiveQuery\Criteria;
 
 // Security: User must be an Admin to access this page.
 // Otherwise re-direct to the main menu.

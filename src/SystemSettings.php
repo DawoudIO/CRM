@@ -13,11 +13,10 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\ConfigQuery;
 use ChurchCRM\dto\LocaleInfo;
 use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Utils\InputUtils;
 use ChurchCRM\dto\SystemURLs;
+use ChurchCRM\Utils\InputUtils;
 
 // Security
 if (!$_SESSION['bAdmin']) {

@@ -2,31 +2,31 @@
 
 /* Contributors Philippe Logel */
 // Routes
-use ChurchCRM\FamilyQuery;
-use ChurchCRM\Token;
-use ChurchCRM\Note;
+use ChurchCRM\dto\MenuEventsCount;
+use ChurchCRM\dto\Photo;
 use ChurchCRM\Emails\FamilyVerificationEmail;
-use ChurchCRM\TokenQuery;
-use ChurchCRM\Person;
-use ChurchCRM\NoteQuery;
-use Propel\Runtime\ActiveQuery\Criteria;
+use ChurchCRM\FamilyQuery;
 use ChurchCRM\Map\FamilyTableMap;
 use ChurchCRM\Map\TokenTableMap;
-use ChurchCRM\dto\Photo;
+use ChurchCRM\Note;
+use ChurchCRM\NoteQuery;
+use ChurchCRM\Person;
+use ChurchCRM\Token;
+use ChurchCRM\TokenQuery;
 use ChurchCRM\Utils\MiscUtils;
-use ChurchCRM\dto\MenuEventsCount;
+use Propel\Runtime\ActiveQuery\Criteria;
 
 $app->group('/families', function () {
     $this->get('/{familyId:[0-9]+}', function($request, $response, $args)  {
         $family = FamilyQuery::create()->findPk($args['familyId']);
         return $response->withJSON($family->toJSON());
     });
-    
+
     $this->get('/numbers', function($request, $response, $args)  {
-        return $response->withJson(MenuEventsCount::getNumberAnniversaries());       
+        return $response->withJson(MenuEventsCount::getNumberAnniversaries());
     });
 
-  
+
     $this->get('/search/{query}', function ($request, $response, $args) {
         $query = $args['query'];
         $results = [];
@@ -87,7 +87,7 @@ $app->group('/families', function () {
     });
 
     $this->get('/{familyId:[0-9]+}/thumbnail', function($request, $response, $args)  {
-      
+
       $res=$this->cache->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
       $photo = new Photo("Family",$args['familyId']);
       return $res->write($photo->getThumbnailBytes())->withHeader('Content-type', $photo->getThumbnailContentType());

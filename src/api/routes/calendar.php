@@ -1,8 +1,8 @@
 <?php
 
+use ChurchCRM\Service\CalendarService;
 use Slim\Http\Request;
 use Slim\Http\Response;
-use ChurchCRM\Service\CalendarService;
 
 $app->group('/calendar', function () {
     $this->get('/events', 'getEvents');

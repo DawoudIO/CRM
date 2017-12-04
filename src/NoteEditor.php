@@ -12,10 +12,10 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use ChurchCRM\dto\SystemURLs;
 use ChurchCRM\Note;
 use ChurchCRM\NoteQuery;
 use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\dto\SystemURLs;
 
 // Security: User must have Notes permission
 // Otherwise, re-direct them to the main menu.

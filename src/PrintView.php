@@ -15,10 +15,8 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\Reports\ChurchInfoReport;
-use ChurchCRM\dto\SystemConfig;
 use ChurchCRM\PersonQuery;
+use ChurchCRM\Utils\InputUtils;
 
 // Get the person ID from the querystring
 $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
@@ -139,7 +137,7 @@ if ($personSheet) {
     echo "	<tr>";
     echo "	<td  style=\"padding:5px;\">";
     $imgName = str_replace(SystemURLs::getDocumentRoot(), "", $personSheet->getPhoto()->getPhotoURI());
-    
+
     echo "<img src=\"".$imgName."\"/>";
     echo "</td><td>";
     echo '<b><font size="4">'.$personSheet->getFullName().'</font></b><br>';
@@ -346,9 +344,9 @@ if ($fam_ID) {
             while ($aRow = mysqli_fetch_array($rsFamilyMembers)) {
                 $per_BirthYear = '';
                 $agr_Description = '';
-                
+
                 extract($aRow);
-                
+
                 // Alternate the row style
                 $sRowClass = AlternateRowStyle($sRowClass)
 

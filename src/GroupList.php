@@ -20,8 +20,8 @@ require 'Include/Functions.php';
 $sPageTitle = gettext('Group Listing');
 require 'Include/Header.php';
 
-use ChurchCRM\ListOptionQuery;
 use ChurchCRM\dto\SystemURLs;
+use ChurchCRM\ListOptionQuery;
 
 $rsGroupTypes = ListOptionQuery::create()->filterById('3')->find();
 
@@ -36,7 +36,7 @@ $rsGroupTypes = ListOptionQuery::create()->filterById('3')->find();
   echo '<option>'.gettext("Unassigned").'</option>';
   foreach ($rsGroupTypes as $groupType) {
       echo '<option>'.$groupType->getOptionName().'</option>';
-  } ?>    
+  } ?>
 </select>
 </label>
 </p>
@@ -72,7 +72,7 @@ $( document).ready(function() {
 	{
 		tf = document.getElementById("table-filter");
 		tf.selectedIndex = gS;
-		
+
 		window.groupSelect = tf.value;
 	}
 });

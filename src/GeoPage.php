@@ -20,11 +20,11 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\ListOptionQuery;
+use ChurchCRM\dto\SystemURLs;
 use ChurchCRM\FamilyQuery;
+use ChurchCRM\ListOptionQuery;
 use ChurchCRM\Utils\GeoUtils;
 use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\dto\SystemURLs;
 
 function CompareDistance($elem1, $elem2)
 {

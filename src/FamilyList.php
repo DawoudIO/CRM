@@ -4,8 +4,8 @@ require 'Include/Functions.php';
 
 use ChurchCRM\dto\SystemConfig;
 use ChurchCRM\FamilyQuery;
-use Propel\Runtime\ActiveQuery\Criteria;
 use ChurchCRM\Utils\InputUtils;
+use Propel\Runtime\ActiveQuery\Criteria;
 
 $sMode = 'Active';
 // Filter received user input as needed

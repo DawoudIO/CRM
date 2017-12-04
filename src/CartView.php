@@ -12,9 +12,9 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 require 'Include/LabelFunctions.php';
 
-use ChurchCRM\dto\SystemURLs;
 use ChurchCRM\dto\Cart;
 use ChurchCRM\dto\SystemConfig;
+use ChurchCRM\dto\SystemURLs;
 
 // Set the page title and include HTML header
 $sPageTitle = gettext('View Your Cart');
@@ -72,10 +72,10 @@ if (!Cart::HasPeople()) {
         </form>
         <?php
     } ?>
-    
+
     <!-- BEGIN CART FUNCTIONS -->
-    
-      
+
+
     <?php
     if (Cart::CountPeople() > 0) {
         ?>
@@ -360,7 +360,7 @@ if (!Cart::HasPeople()) {
               document.location.reload();
             });
           });
-        
+
          });
     </script>
 

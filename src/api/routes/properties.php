@@ -1,8 +1,8 @@
 <?php
 
 
-use ChurchCRM\PersonQuery;
 use ChurchCRM\PersonPropertyQuery;
+use ChurchCRM\PersonQuery;
 use ChurchCRM\PropertyQuery;
 
 
@@ -12,7 +12,7 @@ $app->group('/properties', function() {
         if (!$_SESSION['user']->isAdmin()) {
             return $response->withStatus(401);
         }
- 
+
         $data = $request->getParsedBody();
         $personId = empty($data['PersonId']) ? null : $data['PersonId'];
         $propertyId = empty($data['PropertyId']) ? null : $data['PropertyId'];
@@ -23,7 +23,7 @@ $app->group('/properties', function() {
         if (!$person || !$property) {
             return $response->withStatus(404, gettext('The record could not be found.'));
         }
-        
+
         $personProperty = PersonPropertyQuery::create()
             ->filterByPersonId($personId)
             ->filterByPropertyId($propertyId)
@@ -62,13 +62,13 @@ $app->group('/properties', function() {
         $response->withJson(['success' => false, 'msg' => gettext('The property could not be assigned.')]);
 
     });
-    
-    
+
+
     $this->delete('/persons/unassign', function($request, $response, $args) {
         if (!$_SESSION['user']->isAdmin()) {
             return $response->withStatus(401);
         }
-        
+
         $data = $request->getParsedBody();
         $personId = empty($data['PersonId']) ? null : $data['PersonId'];
         $propertyId = empty($data['PropertyId']) ? null : $data['PropertyId'];
@@ -76,17 +76,17 @@ $app->group('/properties', function() {
         $personProperty = PersonPropertyQuery::create()
             ->filterByPersonId($personId)
             ->filterByPropertyId($propertyId)
-            ->findOne();        
-        
+            ->findOne();
+
         if ($personProperty == null) {
             return $response->withStatus(404, gettext('The record could not be found.'));
         }
-        
+
         $personProperty->delete();
         if ($personProperty->isDeleted()) {
             return $response->withJson(['success' => true, 'msg' => gettext('The property is successfully unassigned.')]);
         } else {
-           return $response->withJson(['success' => false, 'msg' => gettext('The property could not be unassigned.')]); 
+           return $response->withJson(['success' => false, 'msg' => gettext('The property could not be unassigned.')]);
         }
 
     });
